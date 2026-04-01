@@ -4,6 +4,7 @@ import AccountSetup from './features/auth/AccountSetup'
 import Signin from './features/auth/Signin'
 import Signup from './features/auth/Signup'
 import { useBudgetApp } from './hooks/useBudgetApp'
+import MainView from './features/app/MainView'
 
 export default function App() {
   const budgetApp = useBudgetApp()
@@ -28,13 +29,8 @@ export default function App() {
       theme={budgetApp.theme}
       onToggleTheme={budgetApp.toggleTheme}
       onSignOut={budgetApp.signOut}
-      summary={budgetApp.summary}
-    >
-      <section className="dashboard-placeholder">
-        <p className="eyebrow">Dashboard</p>
-        <h1>Start building here</h1>
-        <p>Add cards, charts, and tables once the team is ready.</p>
-      </section>
+      summary={budgetApp.summary}>
+      <MainView budgetApp={budgetApp} />
     </PageShell>
   )
 }
