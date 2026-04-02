@@ -1,4 +1,5 @@
 import Dashboard from '../dashboard/Dashboard'
+import SettingsView from '../setting/Setting'
 
 function MainView({ budgetApp }) {
   const {
@@ -9,6 +10,9 @@ function MainView({ budgetApp }) {
     transactionFeedback,
     updateFilter,
     clearFilters,
+    settingsFeedback,
+    updateSettings,
+    resetAllData,
     profile,
   } = budgetApp
 
@@ -17,7 +21,7 @@ function MainView({ budgetApp }) {
       <section className="view-section">
         <header className="section-header">
           <div>
-            <p className="eyebrow">Create Record</p>
+            <p className="topdescription" style={{ color: "var(--accent)" }}>Create Record</p>
             <h1>Add a transaction</h1>
             <p>Add record for your income, expense, add-saving, and use-saving here</p>
           </div>
@@ -31,7 +35,7 @@ function MainView({ budgetApp }) {
       <section className="view-section">
         <header className="section-header">
           <div>
-            <p className="eyebrow">Records</p>
+            <p className="topdescription" style={{ color: "var(--accent)" }}>Records</p>
             <h1>Transaction history</h1>
             <p>These are what you've spent so far</p>
           </div>
@@ -45,7 +49,7 @@ function MainView({ budgetApp }) {
       <section className="view-section">
         <header className="section-header">
           <div>
-            <p className="eyebrow">Savings</p>
+            <p className="topdescription" style={{ color: "var(--accent)" }}>Savings</p>
             <h1>Savings goals and transfers</h1>
             <p>Wanting an item and not having enough money? Start saving for it now</p>
           </div>
@@ -56,16 +60,23 @@ function MainView({ budgetApp }) {
 
   if (activeView === 'settings') {
     return (
-      <section className="view-section">
-        <header className="section-header">
-          <div>
-            <p className="eyebrow">Settings</p>
-            <h1>Profile and security</h1>
-            <p>Update your monthly budget, appearance, and passkey without leaving the app.</p>
-          </div>
-        </header>
-      </section>
-
+        <section className="view-section">
+          <header className="section-header">
+            <div>
+              <p className="topdescription" style={{ color: "var(--accent)" }}>Settings</p>
+              <h1>Profile and security</h1>
+              <p>Update your monthly budget, appearance, and passkey without leaving the app.</p>
+            </div>
+          </header>
+          <SettingsView
+          profile={profile}
+          theme={budgetApp.theme}
+          feedback={settingsFeedback}
+          onSave={updateSettings}
+          onToggleTheme={budgetApp.toggleTheme}
+          onReset={resetAllData}/>
+        </section>
+        
     )
   }
 

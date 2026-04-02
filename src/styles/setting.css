@@ -1,0 +1,85 @@
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+  border-radius: 28px;
+  padding: 1.4rem;
+}
+
+.section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.settings-form .primary-button {
+    width: 100%;
+}
+
+.form-feedback {
+  color: var(--danger);
+  margin: 0;
+}
+
+.form-feedback--success {
+  color: var(--success);
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+  letter-spacing: 0.02em;
+}
+
+.settings-actions {
+  display: grid;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.settings-row {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--panel-strong);
+}
+
+.secondary-button {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+}
+.secondary-button:hover {
+  transform: translateY(-1px);
+}
+
+.danger-zone {
+  border-color: rgba(196, 69, 54, 0.28);
+}
+
+.danger-button {
+  border: 1px solid transparent;
+  border-radius: 16px;
+  padding: 0.9rem 1rem;
+  transition: 180ms ease;
+  justify-self: center;
+}
+
+@media (max-width: 640px) {
+  .card {
+    border-radius: 24px;
+    padding: 1.1rem;
+  }
+}
