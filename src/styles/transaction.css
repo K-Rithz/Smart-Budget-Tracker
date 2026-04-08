@@ -26,8 +26,7 @@ body {
   padding: 1.4rem;
 }
 
-.atform-grid
-{
+.atform-grid {
   display: grid;
   gap: 1rem;
 }
@@ -40,18 +39,67 @@ body {
 .atform-grid__wide {
   grid-column: 1 / -1;
 }
-textarea{
-    height: 7rem;
+
+textarea {
+  height: 7rem;
 }
 
 .savebtn {
-    font-size: 18px;
-    margin-top: 1.5rem;
-    width: 15rem;
-    height: 5rem;
-    background-color: var(--accent);
-    border-radius: 15px;
-    border: none;
-    color: white;
+  font-size: 18px;
+  margin-top: 1.5rem;
+  width: 15rem;
+  height: 5rem;
+  background-color: var(--accent);
+  border-radius: 15px;
+  border: none;
+  color: white;
 }
 
+.transaction-panel {
+  width: 100%;
+}
+
+.transaction-panel--full {
+  max-width: 100%;
+}
+
+.transaction-panel__controls {
+  padding: 0 1.5rem;
+}
+
+.transaction-panel__title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary, #e8e8e8);
+  margin: 0 0 0.25rem;
+  padding-top: 1.5rem;
+}
+
+.transaction-panel__subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted, #6b7a8d);
+  margin: 0;
+}
+
+.transaction-panel__divider {
+  height: 1px;
+  background: var(--border, rgba(255, 255, 255, 0.07));
+  margin: 0;
+}
+
+.transaction-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-height: 200px;
+}
+
+.empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  color: var(--text-muted, #6b7a8d);
+  font-size: 0.875rem;
+  list-style: none;
+}

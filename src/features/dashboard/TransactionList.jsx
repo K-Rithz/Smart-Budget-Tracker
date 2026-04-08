@@ -1,14 +1,15 @@
-
+import React from 'react'
 import Card from '../../components/ui/Card'
 import TransactionItem from '../transactions/TransactionItem'
 import TransactionFilters from '../transactions/TransactionFilters'
+import './TransactionList.css'
 
 function TransactionList({
   transactions = [],
-  filters,
+  filters = {},
   onFilterChange,
   onClearFilters,
-  categories,
+  categories = [],
   fullWidth = false,
 }) {
   return (
@@ -16,8 +17,10 @@ function TransactionList({
       <div className="transaction-panel__controls">
         <div className="section-heading">
           <div>
-            <h2 style={{ paddingTop: "1.5rem" }}>Transactions</h2>
-            <p>Filtered, view-only history with every record type.</p>
+            <h2 className="transaction-panel__title">Transactions</h2>
+            <p className="transaction-panel__subtitle">
+              Filtered, view-only history with every record type.
+            </p>
           </div>
         </div>
 
@@ -28,6 +31,8 @@ function TransactionList({
           categories={categories}
         />
       </div>
+
+      <div className="transaction-panel__divider" />
 
       <ul className="transaction-list">
         {transactions.length ? (

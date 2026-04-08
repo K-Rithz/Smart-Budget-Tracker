@@ -1,6 +1,7 @@
 import Dashboard from '../dashboard/Overview'
 import SettingsView from '../setting/Setting'
 import AddTransactionForm from '../addTransaction/AddTransactionForm';
+import TransactionHistory from '../transacHistory/TransacHistory';
 
 function MainView({ budgetApp }) {
   const {
@@ -40,6 +41,7 @@ function MainView({ budgetApp }) {
             <p className="topdescription" style={{ color: "var(--accent)" }}>Records</p>
             <h1>Transaction history</h1>
             <p>These are what you've spent so far</p>
+            <TransactionHistory />
           </div>
         </header>
       </section>
