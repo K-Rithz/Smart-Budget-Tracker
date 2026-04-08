@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--bg-accent);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+.atcard,
+.atform-card,
+.atmodal-card,
+.atonboarding-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.atcard,
+.atform-card {
+  border-radius: 28px;
+  padding: 1.4rem;
+}
+
+.atform-grid
+{
+  display: grid;
+  gap: 1rem;
+}
+
+
+.atform-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.atform-grid__wide {
+  grid-column: 1 / -1;
+}
+textarea{
+    height: 7rem;
+}
+
+.savebtn {
+    font-size: 18px;
+    margin-top: 1.5rem;
+    width: 15rem;
+    height: 5rem;
+    background-color: orange;
+    border-radius: 15px;
+    border: none;
+}
+

@@ -1,5 +1,6 @@
 import Dashboard from '../dashboard/Dashboard'
 import SettingsView from '../setting/Setting'
+import AddTransactionForm from '../addTransaction/AddTransactionForm';
 
 function MainView({ budgetApp }) {
   const {
@@ -26,6 +27,7 @@ function MainView({ budgetApp }) {
             <p>Add record for your income, expense, add-saving, and use-saving here</p>
           </div>
         </header>
+        <AddTransactionForm />
       </section>
     )
   }
