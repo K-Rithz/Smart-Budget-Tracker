@@ -1,6 +1,7 @@
 import Dashboard from '../dashboard/Overview'
 import SettingsView from '../setting/Setting'
 import AddTransactionForm from '../addTransaction/AddTransactionForm'
+import TransactionList from '../dashboard/TransactionList'
 import Saving from '../Saving/Saving'
 
 function MainView({ budgetApp }) {
@@ -47,6 +48,13 @@ function MainView({ budgetApp }) {
             <p>These are what you've spent so far</p>
           </div>
         </header>
+        <TransactionList
+          transactions={filteredTransactions}
+          filters={filters}
+          onFilterChange={updateFilter}
+          onClearFilters={clearFilters}
+          categories={budgetApp.categories}
+        />
       </section>
     )
   }
