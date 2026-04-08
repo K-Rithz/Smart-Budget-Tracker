@@ -1,3 +1,4 @@
+import '../../styles/transaction.css'
 function TransactionFilters({ filters, onFilterChange, onClearFilters, categories = [] }) {
   return (
     <div className="transaction-filters">

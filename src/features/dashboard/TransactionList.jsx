@@ -2,7 +2,7 @@ import React from 'react'
 import Card from '../../components/ui/Card'
 import TransactionItem from '../transactions/TransactionItem'
 import TransactionFilters from '../transactions/TransactionFilters'
-import './TransactionList.css'
+
 
 function TransactionList({
   transactions = [],
