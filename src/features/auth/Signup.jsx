@@ -10,9 +10,6 @@ function Signup({ budgetApp, onSwitchToSignIn }) {
     password: '',
     passkey: '',
     currency: 'USD',
-    monthlyBudget: 0,
-    initialBalance: 0,
-    initialSavings: 0,
     goalName: '',
     goalTarget: 0,
   })
