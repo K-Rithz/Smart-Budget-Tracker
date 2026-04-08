@@ -1,4 +1,4 @@
-import Dashboard from '../dashboard/Dashboard'
+import Dashboard from '../dashboard/Overview'
 import SettingsView from '../setting/Setting'
 
 function MainView({ budgetApp }) {

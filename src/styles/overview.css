@@ -1,0 +1,375 @@
+.dashboard {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.dashboard .section-header {
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard .section-header h1 {
+  margin: 0 0 0.75rem;
+  color: var(--text);
+  font-size: 1.65rem;
+  line-height: 1.05;
+}
+
+.dashboard .section-header p:last-child {
+  margin: 0;
+  font-size: 0.76rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--accent-strong);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.primary-button {
+  min-width: 225px;
+  border: 0;
+  border-radius: 8px;
+  padding: 1.1rem 1.6rem;
+  background: var(--accent);
+  color: #fffaf6;
+  font-weight: 700;
+}
+
+.primary-button:hover {
+  background: var(--accent-strong);
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: rgba(255, 252, 247, 0.76);
+  box-shadow: var(--shadow);
+}
+
+.dashboard__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.metric-card {
+  min-height: 168px;
+  padding: 1.3rem 1.05rem;
+}
+
+.metric-label {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--muted);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.metric-card > strong {
+  display: block;
+  margin-bottom: 0.95rem;
+  color: var(--text);
+  font-size: 1.85rem;
+  line-height: 1;
+}
+
+.metric-card p {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.progress {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(102, 76, 48, 0.12);
+}
+
+.progress__bar {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
+  gap: 1.25rem;
+}
+
+.chart-card,
+.transaction-panel {
+  min-height: 460px;
+  padding: 1.3rem 1.05rem 1rem;
+}
+
+.section-heading h2 {
+  margin: 0 0 0.85rem;
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.chart-visual {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin: 1.6rem 0 2rem;
+}
+
+.chart-pie {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  flex: 0 0 auto;
+}
+
+.chart-pie svg {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-pie__base {
+  fill: none;
+  stroke: rgba(102, 76, 48, 0.1);
+  stroke-width: 28;
+}
+
+.chart-pie__center {
+  position: absolute;
+  inset: 26%;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.chart-pie__center strong {
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.chart-pie__center span {
+  color: var(--muted);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.chart-legend {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.chart-legend__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.65rem;
+  align-items: start;
+}
+
+.chart-dot {
+  width: 10px;
+  height: 10px;
+  margin-top: 0.18rem;
+  border-radius: 999px;
+  background: var(--muted);
+}
+
+.chart-dot--income {
+  background: #46a06f;
+}
+
+.chart-dot--expense {
+  background: #d35f4d;
+}
+
+.chart-dot--savings {
+  background: #2a7f8d;
+}
+
+.chart-dot--withdrawal {
+  background: #8c63d6;
+}
+
+.chart-legend strong,
+.chart-row__meta strong {
+  color: var(--text);
+  font-size: 0.78rem;
+}
+
+.chart-legend p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.chart-bars {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.chart-row__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.3rem;
+  color: var(--text);
+  font-size: 0.76rem;
+}
+
+.chart-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(102, 76, 48, 0.1);
+}
+
+.chart-fill {
+  height: 100%;
+  border-radius: inherit;
+}
+
+.chart-fill--income {
+  background: #46a06f;
+}
+
+.chart-fill--expense {
+  background: #d35f4d;
+}
+
+.chart-fill--savings {
+  background: #2a7f8d;
+}
+
+.chart-fill--withdrawal {
+  background: #8c63d6;
+}
+
+.transaction-panel__controls {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.transaction-panel .section-heading h2 {
+  padding-top: 0 !important;
+}
+
+.transaction-filters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  align-items: end;
+}
+
+.transaction-filters label {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--text);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.transaction-filters label span {
+  line-height: 1;
+}
+
+.transaction-filters input,
+.transaction-filters select {
+  min-width: 0;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0 0.9rem;
+  background: rgba(255, 252, 247, 0.62);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.78rem;
+}
+
+.transaction-filters__clear {
+  width: fit-content;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.74rem;
+  text-decoration: underline;
+  justify-self: start;
+}
+
+.transaction-list {
+  min-height: 160px;
+  margin: 7.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.empty-state {
+  display: grid;
+  min-height: 160px;
+  place-items: center;
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.transaction-item p,
+.transaction-item__meta span {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.transaction-item__meta {
+  text-align: right;
+}
+
+@media (max-width: 1180px) {
+  .dashboard__cards,
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .transaction-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard .section-header,
+  .chart-visual {
+    display: grid;
+  }
+
+  .primary-button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .transaction-filters {
+    grid-template-columns: 1fr;
+  }
+}
