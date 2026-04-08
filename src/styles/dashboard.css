@@ -115,14 +115,3 @@
   color: var(--muted);
   max-width: 52ch;
 }
-
-@media (max-width: 960px) {
-  .app-shell {
-    grid-template-columns: 1fr;
-  }
-
-  .sidebar {
-    position: static;
-    min-height: auto;
-  }
-}
