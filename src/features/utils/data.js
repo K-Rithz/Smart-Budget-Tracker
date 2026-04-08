@@ -15,6 +15,15 @@ export function buildInitialAppState(overrides = {}) {
       ...(overrides.profile || {}),
     },
     transactions: overrides.transactions || [],
+    savingsGoals: overrides.savingsGoals || [],
+  }
+}
+
+export function createSavingsGoal(goal = {}) {
+  return {
+    id: goal.id || `goal_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
+    name: goal.name?.trim() || 'Untitled Goal',
+    target: Number(goal.target) || 0,
   }
 }
 
@@ -64,7 +73,7 @@ export function validateOnboarding(input) {
 }
 
 export function deriveSummary(appState) {
-  const { profile, transactions } = appState
+  const { transactions, savingsGoals = [] } = appState
 
   let income = 0
   let expense = 0
@@ -86,5 +95,6 @@ export function deriveSummary(appState) {
   return {
     balance,
     savingsBalance,
+    goalCount: savingsGoals.length,
   }
 }

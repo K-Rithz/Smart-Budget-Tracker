@@ -1,0 +1,88 @@
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.spotlight-card {
+  display: grid;
+  align-content: center;
+  min-height: 220px;
+}
+
+.spotlight-card strong {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+}
+
+.metric-label {
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.section-heading h2 {
+  margin: 0 0 0.85rem;
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.inline-form {
+  display: grid;
+  grid-template-columns: 3fr 2fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.goal-list {
+  display: grid;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.goal-item {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--panel-strong);
+}
+
+.goal-item__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.sprimary-button {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #fff8f1;
+  justify-self: center;
+  border-radius: 15px;
+  border: none;
+  width: 8rem;
+}
+
+.empty-state {
+  padding: 1rem;
+  border: 1px dashed var(--border);
+  border-radius: 18px;
+  color: var(--muted);
+  text-align: center;
+}

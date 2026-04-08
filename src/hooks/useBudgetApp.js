@@ -3,6 +3,7 @@ import { useLocalStorage } from './useLocalStorage'
 import { categories } from '../features/addTransaction/data/categories'
 import {
   buildInitialAppState,
+  createSavingsGoal,
   deriveSummary,
   getCurrentMonth,
   isValidPasskey,
@@ -166,6 +167,14 @@ export function useBudgetApp() {
     setSettingsFeedback('Settings saved successfully.')
   }
 
+  const addSavingsGoal = ({ name, target }) => {
+    if (!name?.trim() || Number(target) <= 0) return
+    setAppState((prev) => ({
+      ...prev,
+      savingsGoals: [...(prev.savingsGoals || []), createSavingsGoal({ name, target })],
+    }))
+  }
+
   const toggleTheme = () => {
     setAppState((prev) => ({
       ...prev,
@@ -203,6 +212,8 @@ export function useBudgetApp() {
     toggleTheme,
     summary,
     categories,
+    savingsGoals: appState.savingsGoals || [],
+    addSavingsGoal,
     updateSettings,
     resetAllData,
   }
