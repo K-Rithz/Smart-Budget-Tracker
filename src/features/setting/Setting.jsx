@@ -8,7 +8,6 @@ export default function SettingsView({ profile, theme, feedback, onSave, onToggl
     email: profile.email,
     password: profile.password,
     currency: profile.currency,
-    monthlyBudget: profile.monthlyBudget,
     passkey: profile.passkey,
   })
 
@@ -59,17 +58,6 @@ export default function SettingsView({ profile, theme, feedback, onSave, onToggl
               <option value="KHR">KHR</option>
               <option value="EUR">EUR</option>
             </select>
-          </label>
-          <label>
-            Monthly budget
-            <input
-              type="number"
-              min="0"
-              step="0.01"
-              name="monthlyBudget"
-              value={formData.monthlyBudget}
-              onChange={handleChange}
-            />
           </label>
           <label>
             Passkey

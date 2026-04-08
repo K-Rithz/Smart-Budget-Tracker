@@ -1,17 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useLocalStorage } from './useLocalStorage'
-import { categories, categoriesByType } from '../features/transactions/data/categories'
+import { categories } from '../features/addTransaction/data/categories'
 import {
   buildInitialAppState,
-  createSavingsGoal,
-  createTransaction,
   deriveSummary,
   getCurrentMonth,
   isValidPasskey,
   isValidPassword,
-  isSensitiveType,
   validateOnboarding,
-  validateTransaction,
 } from '../features/utils/data'
 
 const STORAGE_KEY = 'smart-budget-tracker.app'
@@ -26,8 +22,6 @@ export function useBudgetApp() {
     category: 'all',
     month: getCurrentMonth(),
   })
-  const [pendingAction, setPendingAction] = useState(null)
-  const [transactionFeedback, setTransactionFeedback] = useState('')
   const [settingsFeedback, setSettingsFeedback] = useState('')
   const [onboardingFeedback, setOnboardingFeedback] = useState('')
   const [authFeedback, setAuthFeedback] = useState('')
@@ -52,52 +46,6 @@ export function useBudgetApp() {
     })
   }, [appState.transactions, filters])
 
-  const commitTransaction = (input) => {
-    setAppState((prev) => ({
-      ...prev,
-      transactions: [createTransaction(input, prev.profile.currency), ...prev.transactions],
-    }))
-    setTransactionFeedback(`${input.type.replace('_', ' ')} recorded successfully.`)
-    return { ok: true }
-  }
-
-  const submitTransaction = (input) => {
-    const validation = validateTransaction(input, summary.balance, summary.savingsBalance)
-    if (!validation.ok) {
-      setTransactionFeedback(validation.message)
-      return validation
-    }
-
-    if (isSensitiveType(validation.value.type)) {
-      setPendingAction({
-        type: validation.value.type,
-        payload: validation.value,
-        message:
-          validation.value.type === 'expense'
-            ? 'Expenses require passkey confirmation before budget and balance are updated.'
-            : 'Using savings requires passkey confirmation before funds move back into your balance.',
-        error: '',
-      })
-      setTransactionFeedback('Passkey confirmation required to finish this action.')
-      return { ok: false, requiresPasskey: true }
-    }
-
-    return commitTransaction(validation.value)
-  }
-
-  const confirmPendingAction = (passkey) => {
-    if (!pendingAction) return
-    if (passkey !== appState.profile.passkey) {
-      setPendingAction((prev) => ({ ...prev, error: 'Incorrect passkey. Please try again.' }))
-      return
-    }
-
-    commitTransaction(pendingAction.payload)
-    setPendingAction(null)
-  }
-
-  const cancelPendingAction = () => setPendingAction(null)
-
   const completeOnboarding = (input) => {
     const validation = validateOnboarding(input)
     if (!validation.ok) {
@@ -108,7 +56,6 @@ export function useBudgetApp() {
     const nextState = buildInitialAppState({
       theme: validation.value.theme,
       profile: validation.value.profile,
-      savingsGoals: validation.value.goal ? [createSavingsGoal(validation.value.goal)] : [],
     })
 
     setAppState(nextState)
@@ -185,14 +132,6 @@ export function useBudgetApp() {
     })
   }
 
-  const addSavingsGoal = ({ name, target }) => {
-    if (!name.trim() || Number(target) <= 0) return
-    setAppState((prev) => ({
-      ...prev,
-      savingsGoals: [...prev.savingsGoals, createSavingsGoal({ name, target })],
-    }))
-  }
-
   const updateSettings = (input) => {
     if (!input.name.trim()) {
       setSettingsFeedback('Name is required.')
@@ -221,7 +160,6 @@ export function useBudgetApp() {
         email: input.email.trim().toLowerCase(),
         password: input.password,
         currency: input.currency,
-        monthlyBudget: Number(input.monthlyBudget) || 0,
         passkey: input.passkey.trim(),
       },
     }))
@@ -239,11 +177,9 @@ export function useBudgetApp() {
     setAppState(buildInitialAppState())
     setIsAuthenticated(false)
     setActiveView('overview')
-    setTransactionFeedback('')
     setSettingsFeedback('')
     setOnboardingFeedback('')
     setAuthFeedback('')
-    setPendingAction(null)
   }
 
   return {
@@ -255,14 +191,9 @@ export function useBudgetApp() {
     updateFilter,
     clearFilters,
     filteredTransactions,
-    submitTransaction,
-    transactionFeedback,
     settingsFeedback,
     onboardingFeedback,
     authFeedback,
-    pendingAction,
-    confirmPendingAction,
-    cancelPendingAction,
     completeOnboarding,
     completeAccountSetup,
     signIn,
@@ -272,9 +203,6 @@ export function useBudgetApp() {
     toggleTheme,
     summary,
     categories,
-    categoriesByType,
-    savingsGoals: appState.savingsGoals,
-    addSavingsGoal,
     updateSettings,
     resetAllData,
   }
