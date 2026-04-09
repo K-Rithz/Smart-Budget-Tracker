@@ -6,7 +6,7 @@ import TransactionList from './TransactionList'
 import Card from '../../components/ui/Card'
 import Button from '../../components/ui/Button'
 
-function Dashboard({
+function Overview({
   summary,
   filters,
   transactions,
@@ -21,7 +21,7 @@ function Dashboard({
     <section className="dashboard">
       <header className="section-header">
         <div>
-          <p className="eyebrow">Overview</p>
+          <p className="eyebrow" style={{ color: 'var(--accent)' }}>Overview</p>
           <h1>Budget Control Center</h1>
           <p>Track balance, this month's budget usage, savings transfers, and the latest records in one place.</p>
         </div>
@@ -57,4 +57,4 @@ function Dashboard({
   )
 }
 
-export default Dashboard
+export default Overview

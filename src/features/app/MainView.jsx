@@ -1,4 +1,4 @@
-import Dashboard from '../dashboard/Overview'
+import Overview from '../dashboard/Overview'
 import SettingsView from '../setting/Setting'
 import AddTransactionForm from '../addTransaction/AddTransactionForm'
 import TransactionList from '../dashboard/TransactionList'
@@ -101,7 +101,7 @@ function MainView({ budgetApp }) {
   }
 
   return (
-    <Dashboard
+    <Overview
       summary={summary}
       filters={filters}
       transactions={filteredTransactions}
