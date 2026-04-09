@@ -16,7 +16,7 @@ function TransactionItem({ item }) {
       </div>
       <div className="transaction-item__meta">
         <strong>{formatCurrency(item.amount, item.currency)}</strong>
-        <span>{item.date}</span>
+        <span style={{ paddingLeft: "1rem" }}>{item.date}</span>
       </div>
     </li>
   )
