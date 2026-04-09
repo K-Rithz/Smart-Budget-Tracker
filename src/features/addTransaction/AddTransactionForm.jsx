@@ -106,7 +106,7 @@ function AddTransactionForm({ onSubmit, feedback, categoriesByType: categoriesBy
         </div>
 
         {feedback && (
-          <p className="form-feedback">{feedback}</p>
+          <p className="form-feedback" style={{ color: "var(--accent)" }}>{feedback}</p>
         )}
 
         <button className="savebtn" type="submit">Save Record</button>

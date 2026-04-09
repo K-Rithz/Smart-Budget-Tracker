@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import PageShell from './components/layout/PageShell'
+import Passkey from './components/popup/Passkey'
 import AccountSetup from './features/auth/AccountSetup'
 import Signin from './features/auth/Signin'
 import Signup from './features/auth/Signup'
@@ -22,16 +23,24 @@ export default function App() {
   }
 
   return (
-    <PageShell
-      activeView={budgetApp.activeView}
-      onChangeView={budgetApp.setActiveView}
-      profile={budgetApp.profile}
-      theme={budgetApp.theme}
-      onToggleTheme={budgetApp.toggleTheme}
-      onSignOut={budgetApp.signOut}
-      summary={budgetApp.summary}>
-      <MainView budgetApp={budgetApp} />
-    </PageShell>
+    <>
+      <PageShell
+        activeView={budgetApp.activeView}
+        onChangeView={budgetApp.setActiveView}
+        profile={budgetApp.profile}
+        theme={budgetApp.theme}
+        onToggleTheme={budgetApp.toggleTheme}
+        onSignOut={budgetApp.signOut}
+        summary={budgetApp.summary}
+      >
+        <MainView budgetApp={budgetApp} />
+      </PageShell>
+      <Passkey
+        pendingAction={budgetApp.pendingAction}
+        onCancel={budgetApp.cancelPendingAction}
+        onConfirm={budgetApp.confirmPendingAction}
+      />
+    </>
   )
 }
 

@@ -1,6 +1,8 @@
-import Dashboard from '../dashboard/Overview'
+import Overview from '../dashboard/Overview'
 import SettingsView from '../setting/Setting'
-import AddTransactionForm from '../addTransaction/AddTransactionForm';
+import AddTransactionForm from '../addTransaction/AddTransactionForm'
+import TransactionList from '../dashboard/TransactionList'
+import Saving from '../Saving/Saving'
 
 function MainView({ budgetApp }) {
   const {
@@ -27,7 +29,11 @@ function MainView({ budgetApp }) {
             <p>Add record for your income, expense, add-saving, and use-saving here</p>
           </div>
         </header>
-        <AddTransactionForm />
+        <AddTransactionForm
+          onSubmit={budgetApp.submitTransaction}
+          feedback={transactionFeedback}
+          categoriesByType={budgetApp.categoriesByType}
+        />
       </section>
     )
   }
@@ -42,6 +48,13 @@ function MainView({ budgetApp }) {
             <p>These are what you've spent so far</p>
           </div>
         </header>
+        <TransactionList
+          transactions={filteredTransactions}
+          filters={filters}
+          onFilterChange={updateFilter}
+          onClearFilters={clearFilters}
+          categories={budgetApp.categories}
+        />
       </section>
     )
   }
@@ -56,6 +69,11 @@ function MainView({ budgetApp }) {
             <p>Wanting an item and not having enough money? Start saving for it now</p>
           </div>
         </header>
+        <Saving 
+          summary={summary}
+          profile={profile}
+          budgetApp={budgetApp}
+        />
       </section>
     )
   }
@@ -83,7 +101,7 @@ function MainView({ budgetApp }) {
   }
 
   return (
-    <Dashboard
+    <Overview
       summary={summary}
       filters={filters}
       transactions={filteredTransactions}

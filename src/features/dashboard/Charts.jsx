@@ -79,8 +79,8 @@ function Charts({ summary, currency }) {
             <div className="chart-legend__item" key={item.label}>
               <span className={`chart-dot chart-dot--${item.tone}`} />
               <div>
-                <strong>{item.label}</strong>
-                <p>{total ? `${item.percent.toFixed(0)}% of total records` : '0% of total records'}</p>
+                <strong style={{ fontSize: '1rem' }}>{item.label}</strong>
+                <p style={{ fontSize: '0.9rem' }}>{total ? `${item.percent.toFixed(0)}% of total records` : '0% of total records'}</p>
               </div>
             </div>
           ))}
@@ -91,7 +91,7 @@ function Charts({ summary, currency }) {
         {items.map((item) => (
           <div className="chart-row" key={item.label}>
             <div className="chart-row__meta">
-              <span>{item.label}</span>
+              <span style={{ fontSize: '1rem' }}>{item.label}</span>
               <strong>{formatCurrency(item.value, currency)}</strong>
             </div>
             <div className="chart-track">
